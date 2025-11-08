@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notcoin Klikker</title>
+    <style>
+        /* Butun sahifa uchun uslublar */
+        body {
+            display: flex; /* Elementlarni moslashuvchan joylashtirish */
+            flex-direction: column; /* Elementlarni vertikal joylashtirish */
+            justify-content: center; /* Vertikal o'q bo'yicha markazga tekislash */
+            align-items: center; /* Gorizontal o'q bo'yicha markazga tekislash */
+            height: 100vh; /* Balandlikni ekran bo'yicha to'liq egallash */
+            margin: 0; /* Tashqi chegaralarni olib tashlash */
+            background-color: #000000; /* Fon rangini qora qilish */
+            color: white; /* Matn rangini oq qilish */
+            font-family: sans-serif; /* Shrift turini belgilash */
+            user-select: none; /* Matnni belgilashni o'chirish */
+        }
+
+        /* Ochkolar sonini ko'rsatuvchi blok */
+        .score-container {
+            font-size: 48px; /* Shrift o'lchami */
+            font-weight: bold; /* Shrift qalinligi */
+            margin-bottom: 50px; /* Pastki chegara */
+        }
+
+        /* Bosiladigan tanga (rasm) uchun uslub */
+        .coin-button {
+            width: 250px; /* Rasm kengligi */
+            height: 250px; /* Rasm balandligi */
+            border-radius: 50%; /* Chegaralarni 50% ga yumaloqlab, dumaloq shakl hosil qilish */
+            background-image: url('https://s2.coinmarketcap.com/static/img/coins/200x200/28811.png' ); /* Fon rasmi */
+            background-size: cover; /* Rasm o'lchamini blokga moslashtirish */
+            background-position: center; /* Rasmni markazga joylashtirish */
+            cursor: pointer; /* Sichqoncha kursorini 'qo'l' belgisiga o'zgartirish */
+            transition: transform 0.1s ease-out; /* Bosilganda silliq animatsiya */
+        }
+
+        /* Tanga bosilganda (faol holatda) */
+        .coin-button:active {
+            transform: scale(0.95); /* O'lchamini biroz kichraytirish */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Ochkolar soni ko'rsatiladigan joy -->
+    <div class="score-container" id="score-display">0</div>
+
+    <!-- Bosish uchun dumaloq tanga -->
+    <div class="coin-button" id="coin"></div>
+
+    <script>
+        // HTML elementlarni JavaScript orqali topib olamiz
+        const coinElement = document.getElementById('coin');
+        const scoreDisplayElement = document.getElementById('score-display');
+
+        // Boshlang'ich ochkolar soni
+        let score = 0;
+
+        // Tangaga bosish hodisasini "tinglaymiz"
+        coinElement.addEventListener('click', function() {
+            // Ochkoni 1 taga oshiramiz
+            score = score + 1;
+
+            // Yangi ochkoni ekranda ko'rsatamiz
+            scoreDisplayElement.textContent = score;
+        });
+    </script>
+
+</body>
+</html>
